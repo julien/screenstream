@@ -2,11 +2,10 @@
   "name": "screenstream",
   "version": "1.0.0",
   "private": true,
-  "description": "",
-  "main": "index.js",
+  "description": " ",
   "scripts": {
-    "precommit": "prettier --write *.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "precommit": "prettier --write *.js public/*.js",
+    "start": "node server.js"
   },
   "lint-staged": {
     "*.js": [
@@ -26,6 +25,7 @@
   },
   "homepage": "https://gitlab.com/julien/screenstream#README",
   "devDependencies": {
+    "express": "^4.15.3",
     "husky": "0.13.3",
     "lint-staged": "3.4.2",
     "prettier": "1.3.1"
