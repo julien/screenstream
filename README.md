@@ -1,5 +1,4 @@
-
-Play with the MediaRecorder API
+Share and record your screen in the browser
 
 - Download Firefox Nightly and once installed visit `about:config`
 
