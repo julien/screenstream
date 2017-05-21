@@ -1,4 +1,4 @@
-import {getScreenRecorder, createVideo} from "./media.js";
+import { getScreenRecorder, createVideo } from "./media.js";
 
 window.addEventListener("load", () => {
   const container = document.querySelector(".container");
@@ -44,13 +44,13 @@ window.addEventListener("load", () => {
   });
 
   function forceDownload(url, parent) {
-    const a = document.createElement('a');
-    a.classList.add('hidden');
+    const a = document.createElement("a");
+    a.classList.add("hidden");
 
     const p = parent.contains(parent) ? parent : document.body;
     p.appendChild(a);
-    a.setAttribute('href', url);
-    a.setAttribute('download', 'download.webm');
+    a.setAttribute("href", url);
+    a.setAttribute("download", "download.webm");
     a.click();
   }
 });
