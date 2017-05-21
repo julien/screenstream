@@ -1,4 +1,4 @@
-import { getScreenRecorder, createVideo } from "./media.js";
+import {getScreenRecorder, createVideo} from "./media.js";
 
 window.addEventListener("load", () => {
   const container = document.querySelector(".container");
@@ -27,13 +27,30 @@ window.addEventListener("load", () => {
         recorder.start();
       });
     } else {
-      btn.textContent = "start screensharing";
-      recorder.addEventListener("dataavailable", e => {
-        video.src = URL.createObjectURL(e.data);
-        video.play();
-      });
-      recorder.stop();
       sharing = false;
+      btn.textContent = "start screensharing";
+
+      recorder.addEventListener("dataavailable", e => {
+        const url = URL.createObjectURL(e.data);
+
+        video.src = url;
+        video.play();
+
+        forceDownload(url, container);
+      });
+
+      recorder.stop();
     }
   });
+
+  function forceDownload(url, parent) {
+    const a = document.createElement('a');
+    a.classList.add('hidden');
+
+    const p = parent.contains(parent) ? parent : document.body;
+    p.appendChild(a);
+    a.setAttribute('href', url);
+    a.setAttribute('download', 'download.webm');
+    a.click();
+  }
 });
