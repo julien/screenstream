@@ -1,4 +1,5 @@
 const constraints = {
+  audio: true,
   video: {
     mediaSource: "screen"
   }
