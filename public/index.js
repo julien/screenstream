@@ -1,4 +1,4 @@
-import { getScreenRecorder, createVideo } from "./media.js";
+import { createRecorder, createVideo } from "./media.js";
 
 window.addEventListener("load", () => {
   const container = document.querySelector(".container");
@@ -15,7 +15,7 @@ window.addEventListener("load", () => {
     if (sharing === false) {
       sharing = true;
 
-      getScreenRecorder().then(data => {
+      createRecorder().then(data => {
         const { rec, str } = data;
 
         video.src = URL.createObjectURL(str);

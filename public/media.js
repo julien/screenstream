@@ -1,11 +1,11 @@
-const constraints = {
+const defaultConstraints = {
   audio: true,
   video: {
     mediaSource: "screen"
   }
 };
 
-export function getScreenRecorder() {
+export function createRecorder(constraints = defaultConstraints) {
   return navigator.mediaDevices
     .getUserMedia(constraints)
     .then(stream => {
